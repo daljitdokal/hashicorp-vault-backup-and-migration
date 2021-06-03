@@ -41,7 +41,7 @@ exit
 Please click [here](https://github.com/daljitdokal/hashicorp-vault/blob/main/backup-and-recovery-process.md) to see step by step process to backup and retore secects. 
 
 # Migration Approach
-Please click [here](https://github.com/daljitdokal/hashicorp-vault/blob/main/migration-approach.md) to see step by step process to migrate secects fro ond vault to new vault. 
+Please click [here](https://github.com/daljitdokal/hashicorp-vault/blob/main/migration-approach.md) to see step by step process to migrate secects from old vault to new vault. 
 
 # Other Vaults
 ### Ansible Vault:
