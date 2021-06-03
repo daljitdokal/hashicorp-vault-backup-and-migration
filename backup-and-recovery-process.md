@@ -1,6 +1,6 @@
 
 # Introduction
-The purpose of this document is to configure backup and recovery process solution for new created HashiCorp vault.
+The purpose of this document is to configure backup and recovery process solution for HashiCorp vault.
 
 ## Prerequisites
 * [Medusa](https://github.com/jonasvinther/medusa): Medusa is a cli tool currently for importing and exporting a json or yaml file into HashiCorp Vault and supports kv1 and kv2 Vault secret engines.
