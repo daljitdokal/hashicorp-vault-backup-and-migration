@@ -32,7 +32,15 @@ openssl rsa -in vault-private-key.pem -pubout -out vault-public-key.pem
 
 
 # Exporting vault secrets
-Vault export is easy using Medusa. Simply use following command to export secrets to create backup with `date` from legacy vault. At this stage this script will be executed manually but in future this script will be used in CI/CD process to create daily backups.
+Vault export is easy using Medusa. Simply use following command to export secrets to create backup with today's `date` folder
+```bash
+# create new file
+touch exportSecrets.sh
+
+# Edit new file
+nano exportSecrets.sh
+```
+Copy and paste folling code:
 ```bash
 #!/bin/sh
 
@@ -42,7 +50,7 @@ vaultToken="xxxxxxxxxxxx";
 secretsEngines=('dev' 'test' 'prod');
 getDate="$(date '+%Y%m%d')";
 pubicKeyPath="./keys/vault-public-key.pem";
-outputFolderPath="./backup";
+outputFolderPath="./";
 encrypt="true"
 
 # Try catch
@@ -69,6 +77,14 @@ encrypt="true"
 
 # Importing vault secrets
 Please use the following commands to import the secrets to new vault.
+```bash
+# create new file
+touch importSecrets.sh
+
+# Edit new file
+nano importSecrets.sh
+```
+Copy and paste folling code
 ```bash
 #!/bin/sh
 
