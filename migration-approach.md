@@ -1,5 +1,5 @@
 # Introduction
-The purpose of this document is to create a tested migration approach for secrets between HashiCorp Vault instances.
+The purpose of this document is to create a tested migration approach for secrets between HashiCorp Vault instances in OpenShift 4.6.
 
 # Migration Approach
 We will be creating few testing environment with vault instances to mimic the current state and then create the end to end migration process to apply tested migration approach before starting the actual migration process.
