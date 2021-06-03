@@ -25,7 +25,7 @@ Vault export is easy using Medusa. Simply use following command to export secret
 # Create variables
 vaultAddress="https://<vault-address>";
 vaultToken="xxxxxxxxxxxx";
-secretsEngines=('common' 'dev' 'test' 'staging' 'prod');
+secretsEngines=('dev' 'test' 'prod');
 getDate="$(date '+%Y%m%d')";
 pubicKeyPath="./keys/vault-public-key.pem";
 outputFolderPath="./backup";
@@ -61,7 +61,7 @@ Please use the following commands to import the secrets to new vault.
 # Create variables
 vaultAddress="https://<vault-address>;
 vaultToken="xxxxxxxxxx";
-secretsEngines=('common' 'dev' 'test' 'staging' 'prod');
+secretsEngines=('dev' 'test' 'prod');
 getDate="$(date '+%Y%m%d')";
 privateKeyPath="./keys/vault-private-key.pem";
 outputFolderPath="./backup";
