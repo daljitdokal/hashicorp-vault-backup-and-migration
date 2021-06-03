@@ -40,7 +40,7 @@ touch exportSecrets.sh
 # Edit new file
 nano exportSecrets.sh
 ```
-Copy and paste folling code:
+Copy and paste following code:
 ```bash
 #!/bin/sh
 
@@ -84,7 +84,7 @@ touch importSecrets.sh
 # Edit new file
 nano importSecrets.sh
 ```
-Copy and paste folling code
+Copy and paste following code:
 ```bash
 #!/bin/sh
 
