@@ -29,7 +29,7 @@ secretsEngines=('dev' 'test' 'prod');
 getDate="$(date '+%Y%m%d')";
 pubicKeyPath="./keys/vault-public-key.pem";
 outputFolderPath="./backup";
-encrypt="false"
+encrypt="true"
 
 # Try catch
 { 
@@ -65,7 +65,7 @@ secretsEngines=('dev' 'test' 'prod');
 getDate="$(date '+%Y%m%d')";
 privateKeyPath="./keys/vault-private-key.pem";
 outputFolderPath="./backup";
-decrypt="false"
+decrypt="true"
 
 # Try catch
 { 
