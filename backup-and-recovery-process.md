@@ -98,13 +98,13 @@ vaultToken="xxxxxxxxxx";
 secretsEngines=('dev' 'prod');
 getDate="$(date '+%Y%m%d')";
 privateKeyPath="./keys/vault-private-key.pem";
-outputFolderPath="./backup";
+outputFolderPath="./${getDate}";
 decrypt="true"
 
 # Try catch
 { 
     # Create folder for each date backup
-    if [ -d "${outputFolderPath}/${getDate}" ]; then
+    if [ -d "${outputFolderPath}" ]; then
         echo "Importing started."
         # start exporting process
         for kv in "${secretsEngines[@]}";
@@ -115,7 +115,7 @@ decrypt="true"
         done
         echo "Importing completed successfully!"
     else
-        echo "Invalid folder path '${outputFolderPath}/${getDate}'"
+        echo "Invalid folder path '${outputFolderPath}'"
     fi
 } || {
     echo "Error in $__EXCEPTION_SOURCE__ at line: $__EXCEPTION_LINE__!"
