@@ -28,7 +28,7 @@ openssl genrsa -out vault-private-key.pem 4096
 # Generate public key
 openssl rsa -in vault-private-key.pem -pubout -out vault-public-key.pem
 ```
-* Manually creating `kv` secrets engine in new vault (same as old vault).
+* Manually creating `kv` secrets engine in new vault same as old vault (i.e.`dev`, `prod`).
 
 
 # Exporting vault secrets
@@ -47,7 +47,7 @@ Copy and paste following code:
 # Create variables
 vaultAddress="https://<vault-address>";
 vaultToken="xxxxxxxxxxxx";
-secretsEngines=('dev' 'test' 'prod');
+secretsEngines=('dev' 'prod');
 getDate="$(date '+%Y%m%d')";
 pubicKeyPath="./keys/vault-public-key.pem";
 outputFolderPath="./";
@@ -91,7 +91,7 @@ Copy and paste following code:
 # Create variables
 vaultAddress="https://<vault-address>;
 vaultToken="xxxxxxxxxx";
-secretsEngines=('dev' 'test' 'prod');
+secretsEngines=('dev' 'prod');
 getDate="$(date '+%Y%m%d')";
 privateKeyPath="./keys/vault-private-key.pem";
 outputFolderPath="./backup";
