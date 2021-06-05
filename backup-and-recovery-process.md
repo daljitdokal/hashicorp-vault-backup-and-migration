@@ -40,7 +40,7 @@ touch exportSecrets.sh
 # Edit new file
 nano exportSecrets.sh
 ```
-Copy and paste following code:
+Add following code and update your vault's address and token:
 ```bash
 #!/bin/sh
 
@@ -84,7 +84,7 @@ touch importSecrets.sh
 # Edit new file
 nano importSecrets.sh
 ```
-Copy and paste following code:
+Add following code and update your vault's address and token:
 ```bash
 #!/bin/sh
 
@@ -116,8 +116,4 @@ decrypt="true"
 } || {
     echo "Error in $__EXCEPTION_SOURCE__ at line: $__EXCEPTION_LINE__!"
 }
-
 ```
-
-
-
