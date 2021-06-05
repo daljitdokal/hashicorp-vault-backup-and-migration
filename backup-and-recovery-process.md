@@ -121,11 +121,11 @@ decrypt="true"
 # Execute export process
 Please use following command to execute the exporting process.
 ```bash
-./exportSecrets
+./exportSecrets.sh
 ```
 
 # Execute import process
 Please use following command to execute the importing process.
 ```bash
-./importSecrets
+./importSecrets.sh
 ```
