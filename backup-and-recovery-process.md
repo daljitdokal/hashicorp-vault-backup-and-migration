@@ -40,7 +40,7 @@ touch exportSecrets.sh
 # Edit new file
 nano exportSecrets.sh
 ```
-Add following code and update your vault's address and token:
+Add following code and update `vaultAddress`, `token` and `secretsEngines`:
 ```bash
 #!/bin/sh
 
@@ -48,25 +48,25 @@ Add following code and update your vault's address and token:
 vaultAddress="https://<vault-address>";
 vaultToken="xxxxxxxxxxxx";
 secretsEngines=('dev' 'prod');
-getDate="$(date '+%Y%m%d')";
 pubicKeyPath="./keys/vault-public-key.pem";
-outputFolderPath="./";
+getDate="$(date '+%Y%m%d')";
+outputFolderPath="./${getDate}";
 encrypt="true"
 
 # Try catch
 { 
     # Create folder for each date backup
-    if [ -d "${outputFolderPath}/${getDate}" ]; then
+    if [ -d "${outputFolderPath}" ]; then
         echo "Folder already exits."
     else
-        mkdir "${outputFolderPath}/${getDate}";
+        mkdir "${outputFolderPath}";
     fi
 
     echo "Exporting started."
     # start exporting process
     for kv in "${secretsEngines[@]}";
     do
-        ./medusa export ${kv} --address="${vaultAddress}" --token="${vaultToken}" --insecure --encrypt="${encrypt}" --public-key="${pubicKeyPath}" --output="${outputFolderPath}/${getDate}/${kv}.txt"
+        ./medusa export ${kv} --address="${vaultAddress}" --token="${vaultToken}" --insecure --encrypt="${encrypt}" --public-key="${pubicKeyPath}" --output="${outputFolderPath}/${kv}.txt"
         echo " - Secrest engine '${kv}': completed."
     done
     echo "Exporting completed successfully!"
@@ -88,7 +88,7 @@ touch importSecrets.sh
 # Edit new file
 nano importSecrets.sh
 ```
-Add following code and update your vault's address and token:
+Add following code and update `vaultAddress`, `token` and `secretsEngines`:
 ```bash
 #!/bin/sh
 
@@ -96,8 +96,8 @@ Add following code and update your vault's address and token:
 vaultAddress="https://<vault-address>;
 vaultToken="xxxxxxxxxx";
 secretsEngines=('dev' 'prod');
-getDate="$(date '+%Y%m%d')";
 privateKeyPath="./keys/vault-private-key.pem";
+getDate="$(date '+%Y%m%d')";
 outputFolderPath="./${getDate}";
 decrypt="true"
 
@@ -109,7 +109,7 @@ decrypt="true"
         # start exporting process
         for kv in "${secretsEngines[@]}";
         do
-            ./medusa import ${kv} "${outputFolderPath}/${getDate}/${kv}.txt" --address="${vaultAddress}" --token="${vaultToken}" --insecure --decrypt="${decrypt}" --private-key="${privateKeyPath}"
+            ./medusa import ${kv} "${outputFolderPath}/${kv}.txt" --address="${vaultAddress}" --token="${vaultToken}" --insecure --decrypt="${decrypt}" --private-key="${privateKeyPath}"
             echo " - Secrest engine '${kv}' completed."
             # sleep 0.5 # Waits 0.5 second.
         done
