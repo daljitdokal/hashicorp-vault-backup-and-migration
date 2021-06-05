@@ -117,3 +117,15 @@ decrypt="true"
     echo "Error in $__EXCEPTION_SOURCE__ at line: $__EXCEPTION_LINE__!"
 }
 ```
+
+# Execute export process
+Please use following command to execute the exporting process.
+```bash
+./export
+```
+
+# Execute import process
+Please use following command to execute the importing process.
+```bash
+./import
+```
