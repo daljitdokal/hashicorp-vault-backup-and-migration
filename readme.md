@@ -40,7 +40,7 @@ exit
 # Backup and Recovery Process
 Please click [here](https://github.com/daljitdokal/hashicorp-vault/blob/main/backup-and-recovery-process.md) to see step by step process to backup and restore secrets. 
 
-# Migration Approach (test/tpractise before production migration)
+# Migration Approach (test/practise before production migration)
 Please click [here](https://github.com/daljitdokal/hashicorp-vault/blob/main/migration-approach.md) to see step by step process to test/practise migration process from old vault to new vault in OpenShift 4.6 playground. 
 
 # Other Vaults
