@@ -47,7 +47,7 @@ Add following code and update `vaultAddress`, `token` and `secretsEngines`:
 # Create variables
 vaultAddress="https://<vault-address>";
 vaultToken="xxxxxxxxxxxx";
-secretsEngines=('dev' 'prod');
+secretsEngines=('dev' 'prod'); # Note: 'cubbyhole' is private and can not be exported
 pubicKeyPath="./keys/vault-public-key.pem";
 getDate="$(date '+%Y%m%d')";
 outputFolderPath="./${getDate}";
