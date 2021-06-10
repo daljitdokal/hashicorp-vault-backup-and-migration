@@ -38,6 +38,49 @@ vault operator unseal xxxxxxxx
 exit
 ```
 
+# Configure ldap
+Please use following steps to enable `ldap` access.
+
+### Enable ldap
+```bash
+vault login <token>
+VAULT_ADDR=http://localhost:8200
+vault auth enable ldap
+```
+
+### Create policies
+```bash
+cd tmp
+
+# policy-admin.hcl
+echo 'path "dev/*" { capabilities = ["create", "read", "update", "delete", "list"] }' > policy-admin.hcl
+echo 'path "prod/*" { capabilities = ["create", "read", "update", "delete", "list"] }' >> policy-admin.hcl
+
+# policy-developer.hcl
+echo 'path "dev/*" { capabilities = ["create", "read", "update", "delete", "list"] }' > policy-developer.hcl
+
+# Write policies
+vault policy write admin policy-admin.hcl
+vault policy write developer policy-developer.hcl
+```
+
+### Configure ldap and assign policies
+```bash
+vault write auth/ldap/config \
+url="ldap://<domain>:<port>" \
+userattr=sAMAccountName \
+binddn="<binddn> \
+bindpass="<bindpass>" \
+userdn="<userdn>" \
+groupfilter="(&(objectClass=group)(member:1.2.840.113556.1.4.1941:={{.UserDN}}))" \
+groupattr="cn" \
+groupdn="<groupdn>"
+	
+# Assign policies
+vault write auth/ldap/groups/AD_Group_Admin_Users policies=admin	
+vault write auth/ldap/groups/AD_Group_Developer_Users policies=developer	
+```
+
 # Migration Approach (test/practise before production migration)
 Please click [here](https://github.com/daljitdokal/hashicorp-vault/blob/main/migration-approach.md) to see step by step process to test/practise migration process from old vault to new vault in OpenShift 4.6 playground. 
 
