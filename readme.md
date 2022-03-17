@@ -72,7 +72,7 @@ userattr=sAMAccountName \
 binddn="<binddn> \
 bindpass="<bindpass>" \
 userdn="<userdn>" \
-groupfilter="(&(objectClass=group)(member:1.2.840.113556.1.4.1941:={{.UserDN}}))" \
+groupfilter="(&(objectClass=group)(member:={{.UserDN}}))" \
 groupattr="cn" \
 groupdn="<groupdn>"
 	
