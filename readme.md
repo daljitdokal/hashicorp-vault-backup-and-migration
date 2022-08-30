@@ -87,8 +87,3 @@ Please click [here](https://github.com/daljitdokal/hashicorp-vault/blob/main/mig
 # Backup and Recovery Process
 Please click [here](https://github.com/daljitdokal/hashicorp-vault/blob/main/backup-and-recovery-process.md) to see step by step process to backup and restore secrets. 
 
-# Other Vaults
-### Ansible Vault:
-[Ansible Vault](https://docs.ansible.com/ansible/2.8/user_guide/vault.html#:~:text=Ansible%20Vault%20is%20a%20feature,or%20placed%20in%20source%20control.) is a feature of ansible that allows you to keep sensitive data such as passwords or keys in encrypted files, rather than as plaintext in playbooks or roles. These vault files can then be distributed or placed in source control. 
-
-It uses the ansible-vault command line utility tool for encrypting sensitive information using the AES256 algorithm. This provides symmetric encryption which is embedded to a defined password. A user can use the same password to either encrypt or decrypt files in order to access content.
